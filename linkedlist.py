@@ -57,16 +57,36 @@ class LinkedList:
         temp.next = None
         self.tail = temp
         self.length -= 1
+    
+    def insert(self, value, index):
+        if index == 1:
+            self.insert_at_start(value=value)
+            
+        elif index > self.length:
+            self.append(value=value)
+            
+        else:
+            new_node = Node(value)
+            temp_head = self.head
+            
+            for _ in range(1, index-1):
+                temp_head = temp_head.next
                 
+            prev_val = temp_head.next
+            new_node.next = prev_val
+            temp_head.next = new_node
+                                             
+        self.length += 1
+         
                     
                     
         
 l = LinkedList(4)
-l.insert_at_start(123)
+# l.insert_at_start(123)
 l.append(90)
 l.append(91)
-l.append(92)
+# l.append(92)
 
-l.remove_from_last()
-
+# l.remove_from_last()
+l.insert(10,3)
 l.print_linklist()
