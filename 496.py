@@ -10,7 +10,7 @@ for x in nums1:
         continue
     for y in nums2[idx:]:
         if x<y:
-            r=y4
+            r=y
             break
         elif x==y:
             continue
