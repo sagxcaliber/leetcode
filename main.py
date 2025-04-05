@@ -50,16 +50,31 @@
 # print("-----------------------------------")
 
 
+#
+# def func(a):
+#     print('func1')
+#
+# def func(a,b):
+#     print('func2')
+#
+# def func():
+#     print('func3')
+#
+# func(2)
+
+def func(n):
+    q = n
+
+    def rec(q):
+        r = 2/q
+        if r == 1:
+            return False
+        if q == 1 and r == 0:
+            return True
+        return rec(2 % q)
+
+    print(rec(q))
 
 
+# func(8)
 
-def func(a):
-    print('func1')
-
-def func(a,b):
-    print('func2')
-    
-def func():
-    print('func3')
-    
-func(2)
