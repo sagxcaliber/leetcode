@@ -78,3 +78,15 @@ def func(n):
 
 # func(8)
 
+s= 'zabccbad'
+
+def check_pa(s):
+    left = 0
+    right = left+1
+    middle = 1
+    while left < right:
+        print(left)
+        
+
+
+check_pa(s)

@@ -4,7 +4,7 @@ class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         hash_map = {x:0 for x in range(1,10)}
 
-        for
+        # for
 
 
 
