@@ -8,13 +8,14 @@ def lengthOfLongestSubstring(s: str) -> int:
 
     for i in range(len(s)):
         if s[i] in hashMap:
+            print(hashMap[s[i]] + 1)
             windowStart = max(windowStart, hashMap[s[i]] + 1)
         hashMap[s[i]] = i
         maxWindowSize = max(maxWindowSize, i - windowStart + 1)
     return maxWindowSize
 
 
-print(lengthOfLongestSubstring("abcabcbb"))
+# print(lengthOfLongestSubstring("abcabcbb"))
 
 #
 # # s=Solution()
@@ -57,3 +58,82 @@ print(lengthOfLongestSubstring("abcabcbb"))
 #
 #     return max_profit
 # print(max_profit([1,2,3,4,5,6,7,8,9,0]))
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        left = 0
+        prev_string = ""
+        new_string = ""
+        set_ = set()
+
+        for right in range(len(s)):
+            if s[right] in set_:
+                left = right
+                set_ = {}
+            else:
+                set_.add(s[right])
+                prev_string += s[right]
+        return len(prev_string)
+
+
+s = Solution()
+res = s.lengthOfLongestSubstring(s='abcabcbb')
+print(res)
+
+"""
+prev = 'abc'
+hash_map = {a:1,b:1,c:1}
+for i in --> s :
+    for j in range(i+1,s)
+    
+    
+window solution:
+
+prev='abc'
+hash_map ={a:1,b:1,c:1}
+left = 1
+
+
+for right in range(left+1 ,len(s)):
+    
+    if duplcicate found s[left] == 1 :
+        left +=  1
+        hash_map[s[left]] -= 1
+        
+        
+
+
+"""
+
+
+def func(s='abcabcbb'):
+    l = 0
+    prev_str = ''
+    ans = 0
+    for r in range(l+1,len(s)):
+
+        while s[r] in s[l:r]:
+            l += 1
+
+        prev_str = s[l:r + 1]
+
+        ans = max(ans, len(prev_str))
+
+    return ans
+
+
+
+a
+ab
+abc
+bca
+cab
+abc
+cb
+b
+
+
+
+
+
+
