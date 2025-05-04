@@ -3,19 +3,40 @@
 #     def __init__(self):
 #         self.my_stack = []
         
+# def is_balanced_parentheses(s: str) -> bool:
+#     my_stack = []
+#     for x in s:
+#         if x in ['}',']',')']:
+#             my_stack.append(x)
+#         else:
+#             if len(my_stack)>0:
+#                 val = my_stack.pop()
+#                 if val + x not in ["{}",'[]',"()"]:
+#                     return False
+#
+#     return True
+# class Solution:
 def is_balanced_parentheses(s: str) -> bool:
+    open_case = ['(','{','[']
+    hash_map ={
+        ')':'(',
+        ']':'[',
+        '}':'{'
+    }
     my_stack = []
+
     for x in s:
-        if x in ['}',']',')']:
+        if x in open_case:
             my_stack.append(x)
         else:
-            if len(my_stack)>0:
-                val = my_stack.pop()
-                if val + x not in ["{}",'[]',"()"]:
-                    return False
-                    
-    return True
-        
+            if len(my_stack)>0 and my_stack[-1] == hash_map[x]:
+                my_stack.pop()
+            else:
+                return False
+    return False if len(my_stack) > 0 else True
+
+
+
 # s = Solution()
 # check = "()"
 def test_is_balanced_parentheses():
